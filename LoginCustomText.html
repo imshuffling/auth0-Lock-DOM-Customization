@@ -56,10 +56,10 @@
 
     })(this);
 
-    // EXAMPLE: Insert a custom login text after the .auth0-lock-alternative element.
-    ready('.auth0-lock-alternative', function (element) {
+    // EXAMPLE: Insert a custom login text after the .auth0-lock-input-show-password.
+    ready('.auth0-lock-input-show-password', function (element) {
       let loginTextElement = document.createElement('p');
-      loginTextElement.innerText = "Please contact IT Support if you are having trouble signing in";
+      loginTextElement.innerHTML = "For login access, please contact David Rapson. <a style='color: #dd1d21; 'href='mailto:David.rapson@shell.com'>David.rapson@shell.com</a>";
       element.parentNode.insertBefore(loginTextElement, element.nextSibling);
     });
   </script>
@@ -100,13 +100,15 @@
         __token_issuer: config.authorizationServer.issuer
       },
       assetsUrl: config.assetsUrl,
+      allowForgotPassword: false
       allowedConnections: connection ? [connection] : null,
       rememberLastLogin: !prompt,
       language: language,
       languageDictionary: languageDictionary,
       theme: {
-        //logo:            'YOUR LOGO HERE',
-        //primaryColor:    'green'
+        logo:        'https://upload.wikimedia.org/wikipedia/sco/e/e8/Shell_logo.svg',
+        primaryColor:    '#dd1d21',
+        foregroundColor: "#FFFFFF"
       },
       prefill: loginHint ? {
         email: loginHint,
